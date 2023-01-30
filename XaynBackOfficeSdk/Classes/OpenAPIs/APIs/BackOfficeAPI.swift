@@ -34,7 +34,7 @@ open class BackOfficeAPI {
     /**
      Add documents to the system
      - POST /documents
-     - Add documents to the system. The system will create a representation of the document that will be used to match it against the preferences of a user. Important note: currently we allow up to a maximum of 100 documents per batch size. If you need to add more, then please split up the total amount of documents in separate calls, where each call contains at maximum 100 documents.
+     - Add documents to the system.  The system will create a representation of the document that will be used to match it against the preferences of a user.  **Important note:** Currently we allow up to a maximum of 100 documents per batch size. If you need to add more, then please split up the total amount of documents in separate calls, where each call contains at maximum 100 documents.  **Important note:** Documents which have no `publication_date` are not included when using the `published_after` filter. 
      - API Key:
        - type: apiKey authorizationToken 
        - name: ApiKeyAuth

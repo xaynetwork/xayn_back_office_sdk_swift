@@ -12,10 +12,9 @@ import AnyCodable
 
 public struct DocumentPropertiesResponse: Codable, JSONEncodable, Hashable {
 
-    /** Arbitrary properties that can be attached to a document. A key must be a valid `DocumentPropertyId`. */
-    public var properties: [String: AnyCodable]
+    public var properties: DocumentProperties
 
-    public init(properties: [String: AnyCodable]) {
+    public init(properties: DocumentProperties) {
         self.properties = properties
     }
 

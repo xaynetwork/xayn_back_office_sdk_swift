@@ -16,19 +16,21 @@ public struct IngestedDocument: Codable, JSONEncodable, Hashable {
     public var id: String
     /** Text that will be used to match the document against the user interests. */
     public var snippet: String
-    /** Arbitrary properties that can be attached to a document. A key must be a valid `DocumentPropertyId`. */
-    public var properties: [String: AnyCodable]?
+    public var properties: DocumentProperties?
+    public var tags: [String]?
 
-    public init(id: String, snippet: String, properties: [String: AnyCodable]? = nil) {
+    public init(id: String, snippet: String, properties: DocumentProperties? = nil, tags: [String]? = nil) {
         self.id = id
         self.snippet = snippet
         self.properties = properties
+        self.tags = tags
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case snippet
         case properties
+        case tags
     }
 
     // Encodable protocol methods
@@ -38,6 +40,7 @@ public struct IngestedDocument: Codable, JSONEncodable, Hashable {
         try container.encode(id, forKey: .id)
         try container.encode(snippet, forKey: .snippet)
         try container.encodeIfPresent(properties, forKey: .properties)
+        try container.encodeIfPresent(tags, forKey: .tags)
     }
 }
 

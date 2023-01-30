@@ -15,6 +15,7 @@ XaynBackOfficeSdk/Classes/OpenAPIs/JSONDataEncoding.swift
 XaynBackOfficeSdk/Classes/OpenAPIs/JSONEncodingHelper.swift
 XaynBackOfficeSdk/Classes/OpenAPIs/Models.swift
 XaynBackOfficeSdk/Classes/OpenAPIs/Models/DeleteDocumentsRequest.swift
+XaynBackOfficeSdk/Classes/OpenAPIs/Models/DocumentProperties.swift
 XaynBackOfficeSdk/Classes/OpenAPIs/Models/DocumentPropertiesRequest.swift
 XaynBackOfficeSdk/Classes/OpenAPIs/Models/DocumentPropertiesResponse.swift
 XaynBackOfficeSdk/Classes/OpenAPIs/Models/DocumentPropertyRequest.swift

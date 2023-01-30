@@ -25,8 +25,8 @@ class BackOfficeTests: XCTestCase {
         assert(endpoint != nil, "Missing ENDPOINT in env")
         assert(token != nil, "Missing TOKEN_DOCUMENTS in env")
         
-        XaynBackOfficeSdk.basePath = endpoint!
-        XaynBackOfficeSdk.customHeaders["authorizationToken"] = token!
+        XaynBackOfficeSdkAPI.basePath = endpoint!
+        XaynBackOfficeSdkAPI.customHeaders["authorizationToken"] = token!
     }
     
     override func tearDown() {
@@ -36,11 +36,13 @@ class BackOfficeTests: XCTestCase {
     
     func testA_DocumentIngestion() {
         let expectation = self.expectation(description: "Test: Should call createDocuments successfully")
+        var properties = DocumentProperties();
+        properties.additionalProperties = ["category": "test"];
         let request = IngestionRequest(documents: [
-            IngestedDocument(id: "test_A", snippet: "The story serves as a companion piece to Renoir's 1937 film, Grand Illusion, once more bringing together men from across the broad social spectrum of French society to depict one man's Sisyphean efforts to escape captivity in a German POW camp.", properties: [  "category": "test"]),
-            IngestedDocument(id: "test_B", snippet: "The tragic story of a young orphan girl who is befriended by an innocent but emotionally disabled veteran of the French Indochina War.", properties: [  "category": "test"]),
-            IngestedDocument(id: "test_C", snippet: "A fiercely independent cowboy arranges to have himself locked up in jail in order to then escape with an old friend who has been sentenced to the penitentiary.", properties: [  "category": "test"]),
-            IngestedDocument(id: "test_D", snippet: "Documents the lives of infamous fakers Elmyr de Hory and Clifford Irving. De Hory, who later committed suicide to avoid more prison time, made his name by selling forged works of art by painters like Picasso and Matisse. Irving was infamous for writing a fake autobiography of Howard Hughes. Welles moves between documentary and fiction as he examines the fundamental elements of fraud and the people who commit fraud at the expense of others.", properties: [  "category": "test"])
+            IngestedDocument(id: "test_A", snippet: "The story serves as a companion piece to Renoir's 1937 film, Grand Illusion, once more bringing together men from across the broad social spectrum of French society to depict one man's Sisyphean efforts to escape captivity in a German POW camp.", properties: properties),
+            IngestedDocument(id: "test_B", snippet: "The tragic story of a young orphan girl who is befriended by an innocent but emotionally disabled veteran of the French Indochina War.", properties: properties),
+            IngestedDocument(id: "test_C", snippet: "A fiercely independent cowboy arranges to have himself locked up in jail in order to then escape with an old friend who has been sentenced to the penitentiary.", properties: properties),
+            IngestedDocument(id: "test_D", snippet: "Documents the lives of infamous fakers Elmyr de Hory and Clifford Irving. De Hory, who later committed suicide to avoid more prison time, made his name by selling forged works of art by painters like Picasso and Matisse. Irving was infamous for writing a fake autobiography of Howard Hughes. Welles moves between documentary and fiction as he examines the fundamental elements of fraud and the people who commit fraud at the expense of others.", properties: properties)
         ])
         
         BackOfficeAPI.createDocuments(ingestionRequest: request){ response, error in
