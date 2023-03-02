@@ -36,7 +36,7 @@ open class BackOfficeAPI {
      - POST /documents
      - Add documents to the system.  The system will create a representation of the document that will be used to match it against the preferences of a user.  **Important note:** Currently we allow up to a maximum of 100 documents per batch size. If you need to add more, then please split up the total amount of documents in separate calls, where each call contains at maximum 100 documents.  **Important note:** Documents which have no `publication_date` are not included when using the `published_after` filter. 
      - API Key:
-       - type: apiKey authorizationToken 
+       - type: apiKey authorizationToken (HEADER)
        - name: ApiKeyAuth
      - parameter ingestionRequest: (body)  
      - returns: RequestBuilder<AnyCodable> 
@@ -81,9 +81,9 @@ open class BackOfficeAPI {
     /**
      Delete the document from the system.
      - DELETE /documents/{document_id}
-     - Permanently deletes the document from the system. The endpoint is idempotent. Deleting a non-existing document does not produce an error.
+     - Permanently deletes the document from the system.
      - API Key:
-       - type: apiKey authorizationToken 
+       - type: apiKey authorizationToken (HEADER)
        - name: ApiKeyAuth
      - parameter documentId: (path) Id of the document 
      - returns: RequestBuilder<Void> 
@@ -133,7 +133,7 @@ open class BackOfficeAPI {
      - DELETE /documents/{document_id}/properties
      - Deletes all the properties of the document.
      - API Key:
-       - type: apiKey authorizationToken 
+       - type: apiKey authorizationToken (HEADER)
        - name: ApiKeyAuth
      - parameter documentId: (path) Id of the document 
      - returns: RequestBuilder<Void> 
@@ -184,7 +184,7 @@ open class BackOfficeAPI {
      - DELETE /documents/{document_id}/properties/{property_id}
      - Deletes the property of the document.
      - API Key:
-       - type: apiKey authorizationToken 
+       - type: apiKey authorizationToken (HEADER)
        - name: ApiKeyAuth
      - parameter documentId: (path) Id of the document 
      - parameter propertyId: (path) Id of the document property 
@@ -236,9 +236,9 @@ open class BackOfficeAPI {
     /**
      Delete all listed documents.
      - DELETE /documents
-     - Delete all documents listed in the request body. The endpoint is idempotent. I.e. if the list contains one or multiple non-existing documents, no error is produced.
+     - Delete all documents listed in the request body.
      - API Key:
-       - type: apiKey authorizationToken 
+       - type: apiKey authorizationToken (HEADER)
        - name: ApiKeyAuth
      - parameter deleteDocumentsRequest: (body)  
      - returns: RequestBuilder<Void> 
@@ -286,7 +286,7 @@ open class BackOfficeAPI {
      - GET /documents/{document_id}/properties/{property_id}
      - Gets the property of the document.
      - API Key:
-       - type: apiKey authorizationToken 
+       - type: apiKey authorizationToken (HEADER)
        - name: ApiKeyAuth
      - parameter documentId: (path) Id of the document 
      - parameter propertyId: (path) Id of the document property 
@@ -340,7 +340,7 @@ open class BackOfficeAPI {
      - GET /documents/{document_id}/properties
      - Gets all the properties of the document.
      - API Key:
-       - type: apiKey authorizationToken 
+       - type: apiKey authorizationToken (HEADER)
        - name: ApiKeyAuth
      - parameter documentId: (path) Id of the document 
      - returns: RequestBuilder<DocumentPropertiesResponse> 
@@ -391,7 +391,7 @@ open class BackOfficeAPI {
      - PUT /documents/{document_id}/properties
      - Sets or replaces all the properties of the document.
      - API Key:
-       - type: apiKey authorizationToken 
+       - type: apiKey authorizationToken (HEADER)
        - name: ApiKeyAuth
      - parameter documentId: (path) Id of the document 
      - parameter documentPropertiesRequest: (body)  
@@ -444,7 +444,7 @@ open class BackOfficeAPI {
      - PUT /documents/{document_id}/properties/{property_id}
      - Sets or replaces the property of the document.
      - API Key:
-       - type: apiKey authorizationToken 
+       - type: apiKey authorizationToken (HEADER)
        - name: ApiKeyAuth
      - parameter documentId: (path) Id of the document 
      - parameter propertyId: (path) Id of the document property 

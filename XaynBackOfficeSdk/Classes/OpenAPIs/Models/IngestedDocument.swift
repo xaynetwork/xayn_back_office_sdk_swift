@@ -12,6 +12,8 @@ import AnyCodable
 
 public struct IngestedDocument: Codable, JSONEncodable, Hashable {
 
+    static let idRule = StringRule(minLength: 1, maxLength: 256, pattern: "/^[a-zA-Z0-9_:@.\\-]+$/")
+    static let snippetRule = StringRule(minLength: 1, maxLength: 1024, pattern: "/.+/")
     /** An id can be any non-empty string that consist of digits, latin letters, underscores, colons, minus signs, at signs, and dots. */
     public var id: String
     /** Text that will be used to match the document against the user interests. */

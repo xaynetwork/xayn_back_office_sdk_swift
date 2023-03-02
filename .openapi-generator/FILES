@@ -30,5 +30,6 @@ XaynBackOfficeSdk/Classes/OpenAPIs/Models/IngestionRequest.swift
 XaynBackOfficeSdk/Classes/OpenAPIs/OpenISO8601DateFormatter.swift
 XaynBackOfficeSdk/Classes/OpenAPIs/SynchronizedDictionary.swift
 XaynBackOfficeSdk/Classes/OpenAPIs/URLSessionImplementations.swift
+XaynBackOfficeSdk/Classes/OpenAPIs/Validation.swift
 git_push.sh
 project.yml
